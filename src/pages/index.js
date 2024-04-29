@@ -116,7 +116,24 @@ export default function Home() {
               py={{ base: "0px", md: "24px" }}
               pos="relative"
             >
-              <Image src="./images/swiper/swiper_1.jpeg" />
+              <Box
+                // boxShadow="0 0 2px 0 rgba(0, 0, 0, .4)"
+                boxShadow="lg"
+                w="100%"
+                overflow="hidden"
+                borderRadius="20px"
+              >
+                <Image
+                  _hover={{
+                    overflow: "hidden",
+                    transform: "scale(1.15)",
+                    w: "100%",
+                    transition: "all 0.3s",
+                    opacity: "0.9",
+                  }}
+                  src="./images/swiper/swiper_1.jpeg"
+                />
+              </Box>
               <Box
                 zIndex="9970"
                 pos="absolute"

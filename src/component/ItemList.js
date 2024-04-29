@@ -28,10 +28,32 @@ const ItemList = () => {
         return (
           <WrapItem w={{ base: "47vw", md: "30vw" }}>
             <Box>
-              <Box border="4px solid white">
-                <Image src={item.img} w="100%" />
+              <Box
+                boxShadow="0 0 0 1px rgba(0, 0, 0, .1)"
+                w="100%"
+                overflow="hidden"
+                borderRadius="20px"
+                border="4px solid white"
+              >
+                <Image
+                  _hover={{
+                    overflow: "hidden",
+                    transform: "scale(1.15)",
+                    w: "100%",
+                    transition: "all 0.3s",
+                    opacity: "0.9",
+                  }}
+                  src={item.img}
+                  w="100%"
+                />
               </Box>
-              <Text mx="8px" mt="16px" fontSize="16px" color="#191919" textAlign="start">
+              <Text
+                mx="8px"
+                mt="16px"
+                fontSize="16px"
+                color="#191919"
+                textAlign="start"
+              >
                 {item.info}
               </Text>
             </Box>

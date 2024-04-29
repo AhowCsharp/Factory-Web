@@ -31,17 +31,32 @@ const CarouselItem = () => {
 
   return (
     <Box overflow="hidden" zIndex="9950" pos="relative" mb="-20px">
-      <Flex w="5040px" overflow="hidden" direction="row" animation={animation} >
+      <Flex
+        w={{ base: "3600px", md: "5040px" }}
+        overflow="hidden"
+        direction="row"
+        animation={animation}
+      >
         {PRODUCT_LIST.map((product, index) => {
           return (
-            <Box key={index} w="560px" h="100%" border="4px solid white">
+            <Box
+              key={index}
+              w={{ base: "400px", md: "560px" }}
+              h="100%"
+              border="4px solid white"
+            >
               <Image borderRadius="8px" src={product} w="100%" />
             </Box>
           );
         })}
         {PRODUCT_LIST.map((product, index) => {
           return (
-            <Box key={index} w="560px" h="100%" border="4px solid white">
+            <Box
+              key={index}
+              w={{ base: "400px", md: "560px" }}
+              h="100%"
+              border="4px solid white"
+            >
               <Image w="100%" borderRadius="8px" src={product} w="100%" />
             </Box>
           );

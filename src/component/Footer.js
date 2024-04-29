@@ -3,6 +3,7 @@ import { useTranslation } from "next-i18next";
 import LogoBtn from "./LogoBtn";
 import { useRouter } from "next/router";
 import { useState } from "react";
+// import Map from "./Map";s
 
 const NavItem = ({ children, isContactUsOpen, setIsContactUsOpen, item }) => {
   const { t } = useTranslation("common");
@@ -262,6 +263,8 @@ const Footer = ({ isContactUsOpen, setIsContactUsOpen }) => {
             ))}
           </Wrap>
         </Flex>
+
+        {/* <Map /> */}
         <Flex pos="absolute" bottom="-2" right="-2">
           <Image w="180px" src="./images/dec/footer_1.png" />
         </Flex>

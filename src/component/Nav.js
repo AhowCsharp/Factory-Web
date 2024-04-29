@@ -87,7 +87,9 @@ const NavItem = ({ children, isContactUsOpen, setIsContactUsOpen, item }) => {
       <Text
         color="#c8a856"
         textAlign="center"
-        fontSize="14px"
+        fontSize="18px"
+        lineHeight="26px"
+        fontWeight="500"
         className="hoverText"
         transition="color 0.3s"
       >
@@ -400,7 +402,9 @@ const Nav = ({ isContactUsOpen, setIsContactUsOpen }) => {
                     <Text
                       ml="12px"
                       color="#c8a856"
-                      fontSize="14px"
+                      fontSize="18px"
+                      lineHeight="26px"
+                      fontWeight="500"
                       className="hoverText"
                       opacity={isMenuOpen ? "1" : "0"}
                       transition={
