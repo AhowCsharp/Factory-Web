@@ -219,7 +219,7 @@ const Footer = ({ isContactUsOpen, setIsContactUsOpen }) => {
                     onClick={() => {
                       // 苗栗縣三灣鄉中正路1巷6之1號
                       window.open(
-                        "https://goo.gl/maps/1NjyRQzZ9Hw6t1nX6",
+                        "https://maps.app.goo.gl/7JiQTvxBEky6fVU47",
                         "_blank"
                       );
                     }}

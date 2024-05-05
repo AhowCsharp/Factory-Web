@@ -90,7 +90,7 @@ const ContactUsDrawer = ({ isContactUsOpen, setIsContactUsOpen }) => {
         top="0"
         w={{ base: "370px", md: "775px" }}
         h="100vh"
-        bg="rgb(206, 185, 207)"
+        bg="#F6F2EC"
         zIndex="9999"
         transition="right 0.3s ease-in-out, opacity 0.3s ease-in-out"
         transitionDelay={!isContactUsOpen ? "0.3s" : "0"}

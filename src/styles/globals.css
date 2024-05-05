@@ -40,15 +40,6 @@
   --card-border-rgb: 131, 134, 135;
 }
 
-@font-face {
-  font-family: 'YuPearl-Regular';
-  src: url(https://cdn.jsdelivr.net/gh/max32002/YuPearl@1.011/webfont/YuPearl-Regular.woff2) format('woff2'),
-       url(https://cdn.jsdelivr.net/gh/max32002/YuPearl@1.011/webfont/YuPearl-Regular.woff) format('woff');
-}
-
-body {
-  font-family: 'YuPearl-Regular', sans-serif; /* 使用 YuPearl-Regular 字體，並設置後備字體為無襯線字體 */
-}
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -123,4 +114,14 @@ a {
 
 .visible {
   opacity: 1;
+}
+@font-face {
+  font-family: 'YuPearl-Regular';
+  src: url('/fonts/YuPearl-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'YuPearl-Regular', sans-serif;
 }

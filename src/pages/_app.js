@@ -5,9 +5,10 @@ import theme from "@/lib/theme";
 import "@/styles/globals.css";
 import { Box, ChakraProvider } from "@chakra-ui/react";
 import Head from "next/head";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "swiper/css";
 import "swiper/css/pagination";
+import "@/styles/fonts.css"; // 調整路徑以符合你的檔案結構
 
 import nextI18NextConfig from "../../next-i18next.config";
 import { appWithTranslation } from "next-i18next";
@@ -17,6 +18,12 @@ import PageLoading from "@/component/PageLoading";
 
 const App = ({ Component, pageProps }) => {
   const [isContactUsOpen, setIsContactUsOpen] = useState(false);
+
+  const [nonce, setNonce] = useState();
+
+  useEffect(() => {
+    setNonce(`nonce-${Math.random().toString(36).substr(2, 9)}`);
+  }, []);
   return (
     <>
       <Head>
@@ -55,6 +62,7 @@ const App = ({ Component, pageProps }) => {
             />
             <Component
               {...pageProps}
+              nonce={nonce}
               isContactUsOpen={isContactUsOpen}
               setIsContactUsOpen={setIsContactUsOpen}
             />

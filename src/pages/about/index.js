@@ -1,9 +1,10 @@
+import Map from "@/component/Map";
 import { Box, Flex, Image, Text } from "@chakra-ui/react";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useEffect } from "react";
 
-const About = () => {
+const About = ({ nonce }) => {
   const { t } = useTranslation("common");
 
   useEffect(() => {
@@ -252,7 +253,8 @@ const About = () => {
         pb={{ base: "36px", md: "60px" }}
       >
         <Flex flex="1" p="20px">
-          <Image borderRadius="4px" src="/images/item/world.png" />
+          <Map nonce={nonce} />
+          {/* <Image borderRadius="4px" src="/images/item/world.png" /> */}
         </Flex>
         <Flex flex="1" align="center" pt={{ base: "36px", md: "60px" }}>
           <Text
