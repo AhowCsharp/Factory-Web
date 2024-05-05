@@ -31,7 +31,7 @@ const locations = [
 const Map = ({ nonce }) => {
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
-    googleMapsApiKey: "AIzaSyAb3wkAlz_HRM4h57tO1ITCtvwyH-BlGSM",
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAP_API_KEY,
     nonce,
   });
 
