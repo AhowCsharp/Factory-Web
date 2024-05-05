@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
+import { GoogleMap, LoadScript, Marker, useJsApiLoader } from "@react-google-maps/api";
 
 const containerStyle = {
   width: "400px",
@@ -28,13 +28,9 @@ const locations = [
   { lat: -0.7893, lng: 113.9213, label: "印尼" },
 ];
 
-const Map = ({ nonce }) => {
-  const { isLoaded } = useJsApiLoader({
-    id: "google-map-script",
-    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAP_API_KEY,
-    nonce,
-  });
+const nonce = "fixed-nonce-value"; //
 
+const Map = () => {
   const [map, setMap] = React.useState(null);
 
   const onLoad = React.useCallback(function callback(map) {
@@ -49,24 +45,24 @@ const Map = ({ nonce }) => {
     setMap(null);
   }, []);
 
-  return isLoaded ? (
-    <GoogleMap
-      mapContainerStyle={{
-        width: "100%",
-        height: "400px",
-      }}
-      center={center}
-      // zoom 設定最大
-      zoom={1}
-      onLoad={onLoad}
-      onUnmount={onUnmount}
-    >
-      {locations.map((location, idx) => (
-        <Marker key={idx} position={location} label={location.label} />
-      ))}
-    </GoogleMap>
-  ) : (
-    <></>
+  return (
+    <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAP_API_KEY}>
+      <GoogleMap
+        mapContainerStyle={{
+          width: "100%",
+          height: "400px",
+        }}
+        center={center}
+        // zoom 設定最大
+        zoom={1}
+        onLoad={onLoad}
+        onUnmount={onUnmount}
+      >
+        {locations.map((location, idx) => (
+          <Marker key={idx} position={location} label={location.label} />
+        ))}
+      </GoogleMap>
+    </LoadScript>
   );
 };
 
