@@ -5,19 +5,19 @@ const ItemList = () => {
     {
       id: 1,
       name: "item1",
-      img: "./images/swiper/swiper_1.jpeg",
+      img: "./images/swiper/swiper_10.jpg",
       info: "紅豆含豐富蛋白質和纖維，是營養又健康的食材",
     },
     {
       id: 2,
       name: "item2",
-      img: "./images/swiper/swiper_5.jpeg",
+      img: "./images/swiper/swiper_11.jpg",
       info: "果醬多用於點心，甜美果味增添豐富的層次感",
     },
     {
       id: 3,
       name: "item3",
-      img: "./images/swiper/swiper_3.jpeg",
+      img: "./images/swiper/swiper_12.jpg",
       info: "筍子口感鮮嫩，是春季菜餚中不可缺少的佳品",
     },
   ];
@@ -45,6 +45,7 @@ const ItemList = () => {
                   }}
                   src={item.img}
                   w="100%"
+                  h={{ base: "calc(0.56 * 100%)", md: "calc(0.56 * 30vw)" }}
                 />
               </Box>
               <Text

@@ -61,7 +61,7 @@ export default function Home() {
               loop
               w="full"
               // minH={{ lg: "330px" }}
-              src="images/videos/video_short_small.mp4"
+              src="images/videos/video_long_small.mp4"
               type="video/mp4"
             />
           </Box>

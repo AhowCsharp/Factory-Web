@@ -24,32 +24,38 @@ const App = ({ Component, pageProps }) => {
   useEffect(() => {
     setNonce(`nonce-${Math.random().toString(36).substr(2, 9)}`);
   }, []);
+
+  const siteSEO = {
+    title: "寰宇食品-天下第一豆",
+    description:
+      "寰宇食品致力於提供健康、創新且品質保證的農產品，包含各類豆類、芋頭、地瓜等。堅持不添加任何食品添加物及防腐劑，產地直銷，當天現切現煮，完全新鮮。",
+    keywords:
+      "寰宇食品, 健康食品, 創新農產品, 無添加食品, 產地直銷, 台灣農產品, 豆類加工, 新鮮食材",
+    author: "寰宇食品",
+  };
+
   return (
     <>
       <Head>
-        <title key="title">寰宇食品-天下第一豆</title>
-        {/* <meta
+        <title key="title">{siteSEO.title}</title>
+        <meta
           key="description"
           name="description"
-          content="MRKT5 成立於 2016 年，是專為現代忙碌人所開啟的感官概念店，同時也提供藝術聚會的場所。 空間採取預約制與線上購物平台，提供生活、設計、藝術和時尚等多元服務，打造線上與線下完善服務的精品店。獨創性的系列品牌與產品，從日常用品、護膚保養品到食品，以啟發感官為概念出發——聽覺、視覺、嗅覺、味覺和紋身。"
-        /> */}
-        {/* <meta key="og_title" property="og:title" content="MRKT5" /> */}
+          content={siteSEO.description}
+        />
+        <meta name="keywords" content={siteSEO.keywords} />
+        <meta key="og_title" property="og:title" content={siteSEO.title} />
         <meta
           key="og_image"
           property="og:image"
           content="/images/meta_pic.png"
         />
-        {/* <meta
-          key="og_url"
-          property="og:url"
-          content=""
-        /> */}
         <meta key="og_type" property="og:type" content="website" />
-        {/* <meta
+        <meta
           key="og_description"
           property="og:description"
-          content="MRKT5 成立於 2016 年，是專為現代忙碌人所開啟的感官概念店，同時也提供藝術聚會的場所。 空間採取預約制與線上購物平台，提供生活、設計、藝術和時尚等多元服務，打造線上與線下完善服務的精品店。獨創性的系列品牌與產品，從日常用品、護膚保養品到食品，以啟發感官為概念出發——聽覺、視覺、嗅覺、味覺和紋身。"
-        /> */}
+          content={siteSEO.description}
+        />
         <link rel="icon" href="/images/logo/logo_1.png" sizes="32x32" />
       </Head>
       <Box bg="#FCFCFC" minH="100vh">

@@ -3,6 +3,7 @@ import { useTranslation } from "next-i18next";
 import LogoBtn from "./LogoBtn";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import FooterMap from "./FooterMap";
 // import Map from "./Map";s
 
 const NavItem = ({ children, isContactUsOpen, setIsContactUsOpen, item }) => {
@@ -146,7 +147,7 @@ const Footer = ({ isContactUsOpen, setIsContactUsOpen }) => {
       <Flex
         bg="#F5F2EF"
         w="100%"
-        h={{ base: "400px", md: "250px" }}
+        h={{ base: "600px", md: "450px" }}
         p="24px"
         align="start"
         justify="center"
@@ -197,35 +198,7 @@ const Footer = ({ isContactUsOpen, setIsContactUsOpen }) => {
                     transform: "translateX(2px)",
                   }}
                 >
-                  <Box>
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 18 18"
-                      fill="#D74C37"
-                      class="null"
-                    >
-                      <g>
-                        <path d="M18 9a9 9 0 11-9-9 9 9 0 019 9zm-5.436-.246L8.471 6.025a.926.926 0 00-1.44.771v5.457a.926.926 0 001.44.771l4.093-2.724a.926.926 0 000-1.546z"></path>
-                      </g>
-                    </svg>
-                  </Box>
-                  <Text
-                    textDecor="underline"
-                    ml="8px"
-                    color="#D74C37"
-                    fontWeight="500"
-                    cursor="pointer"
-                    onClick={() => {
-                      // 苗栗縣三灣鄉中正路1巷6之1號
-                      window.open(
-                        "https://maps.app.goo.gl/7JiQTvxBEky6fVU47",
-                        "_blank"
-                      );
-                    }}
-                  >
-                    Google Map {">"}
-                  </Text>
+                  <FooterMap />
                 </Flex>
               </Box>
             </Flex>

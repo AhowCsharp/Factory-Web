@@ -4,12 +4,15 @@ import {
   Flex,
   Image,
   Text,
+  Wrap,
+  WrapItem,
   keyframes,
   usePrefersReducedMotion,
 } from "@chakra-ui/react";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useEffect } from "react";
+import Head from "next/head";
+import { useEffect, useState } from "react";
 
 const IMAGE_LIST = [
   "/images/store/lead_slider_1_1.png",
@@ -25,40 +28,336 @@ const IMAGE_LIST = [
 const PRODUCT_LIST = [
   {
     id: 1,
-    image: "/images/store/mede_2a.jpg",
+    image: "/images/store/bean_1.jpg",
     title_image: "/images/store/ninjin.svg",
+    price: "3KG $TWD 300",
     description:
-      "「山」「畑」「海」の食材を食べて育ったとりから生まれた、リッチなたまごです。低カロリーかつ栄養満点！",
+      "花豆是富含蛋白質與纖維的豆類食材，外觀有美麗的斑點，常用於甜品和湯品，味道濃郁，口感綿密。",
   },
   {
     id: 2,
-    image: "/images/store/mede_2a.jpg",
+    image: "/images/store/bean_2.jpg",
     title_image: "/images/store/ninjin.svg",
+    price: "3KG $TWD 300",
     description:
-      "「山」「畑」「海」の食材を食べて育ったとりから生まれた、リッチなたまごです。低カロリーかつ栄養満点！",
+      "蕃薯富含維生素和纖維，口感甜美且多樣化，無論烤、煮或蒸，都能保留其獨特風味和營養價值。",
   },
-  {
-    id: 3,
-    image: "/images/store/mede_2a.jpg",
-    title_image: "/images/store/ninjin.svg",
-    description:
-      "「山」「畑」「海」の食材を食べて育ったとりから生まれた、リッチなたまごです。低カロリーかつ栄養満点！",
-  },
-  {
-    id: 4,
-    image: "/images/store/mede_2a.jpg",
-    title_image: "/images/store/ninjin.svg",
-    description:
-      "「山」「畑」「海」の食材を食べて育ったとりから生まれた、リッチなたまごです。低カロリーかつ栄養満点！",
-  },
-  {
-    id: 5,
-    image: "/images/store/mede_2a.jpg",
-    title_image: "/images/store/ninjin.svg",
-    description:
-      "「山」「畑」「海」の食材を食べて育ったとりから生まれた、リッチなたまごです。低カロリーかつ栄養満点！",
-  },
+  // {
+  //   id: 3,
+  //   image: "/images/store/mede_2a.jpg",
+  //   title_image: "/images/store/ninjin.svg",
+  //   price: "3KG $TWD 300",
+  //   description:
+  //     "「山」「畑」「海」の食材を食べて育ったとりから生まれた、リッチなたまごです。低カロリーかつ栄養満点！",
+  // },
+  // {
+  //   id: 4,
+  //   image: "/images/store/mede_2a.jpg",
+  //   title_image: "/images/store/ninjin.svg",
+  //   price: "3KG $TWD 300",
+  //   description:
+  //     "「山」「畑」「海」の食材を食べて育ったとりから生まれた、リッチなたまごです。低カロリーかつ栄養満点！",
+  // },
+  // {
+  //   id: 5,
+  //   image: "/images/store/mede_2a.jpg",
+  //   title_image: "/images/store/ninjin.svg",
+  //   price: "3KG $TWD 300",
+  //   description:
+  //     "「山」「畑」「海」の食材を食べて育ったとりから生まれた、リッチなたまごです。低カロリーかつ栄養満点！",
+  // },
 ];
+
+const items = {
+  jar: {
+    bean: [
+      {
+        id: "jar-bean-1",
+        img: "/images/store/product/jar-bean-1.jpg",
+        name: "紫米紅豆",
+        price: "300",
+        info: "紫米與紅豆的完美結合，口感豐富，適合各種甜品和湯品。",
+      },
+      {
+        id: "jar-bean-2",
+        img: "/images/store/product/jar-bean-2.jpg",
+        name: "紅豆",
+        price: "300",
+        info: "紅豆是經典的甜品食材，口感綿密，味道濃郁。",
+      },
+      {
+        id: "jar-bean-3",
+        img: "/images/store/product/jar-bean-3.jpg",
+        name: "綠豆",
+        price: "300",
+        info: "綠豆富含蛋白質和纖維，適合製作各種健康料理。",
+      },
+      {
+        id: "jar-bean-4",
+        img: "/images/store/product/jar-bean-4.jpg",
+        name: "花豆",
+        price: "300",
+        info: "花豆外觀美麗，口感濃郁，常用於甜品和湯品。",
+      },
+    ],
+    rhizome: [
+      {
+        id: "jar-rhizome-1",
+        img: "/images/store/product/jar-rhizome-1.jpg",
+        name: "紫米",
+        price: "300",
+        info: "富含營養的紫米，具有天然的甜味和獨特的口感。",
+      },
+      {
+        id: "jar-rhizome-2",
+        img: "/images/store/product/jar-rhizome-2.jpg",
+        name: "花生",
+        price: "300",
+        info: "香脆可口的花生，富含蛋白質和健康脂肪。",
+      },
+      {
+        id: "jar-rhizome-3",
+        img: "/images/store/product/jar-rhizome-3.jpg",
+        name: "薏仁",
+        price: "300",
+        info: "薏仁具有多種健康益處，是理想的養生食材。",
+      },
+      {
+        id: "jar-rhizome-4",
+        img: "/images/store/product/jar-rhizome-4.jpg",
+        name: "芋頭(1cm丁/2cm塊)",
+        price: "300",
+        info: "切丁或切塊的芋頭，口感綿密，適合各種料理。",
+      },
+      {
+        id: "jar-rhizome-5",
+        img: "/images/store/product/jar-rhizome-5.jpg",
+        name: "紫/黃地瓜(1cm丁/2cm塊)",
+        price: "300",
+        info: "富含維生素的地瓜，口感甜美，適合多種烹飪方式。",
+      },
+      {
+        id: "jar-rhizome-6",
+        img: "/images/store/product/jar-rhizome-6.jpg",
+        name: "燕麥粒",
+        price: "300",
+        info: "燕麥粒富含纖維和營養，是健康的選擇。",
+      },
+    ],
+    other: [
+      {
+        id: "jar-other-1",
+        img: "/images/store/product/jar-other-1.jpg",
+        name: "銀耳",
+        price: "300",
+        info: "銀耳富含膠質，常用於甜品，具有養生功效。",
+      },
+    ],
+  },
+  pouch: {
+    bean: [
+      {
+        id: "pouch-bean-1",
+        img: "/images/store/product/pouch-bean-1.jpg",
+        name: "紫米紅豆",
+        price: "300",
+        info: "紫米與紅豆的完美結合，口感豐富，適合各種甜品和湯品。",
+      },
+      {
+        id: "pouch-bean-2",
+        img: "/images/store/product/pouch-bean-2.jpg",
+        name: "紅豆",
+        price: "300",
+        info: "紅豆是經典的甜品食材，口感綿密，味道濃郁。",
+      },
+      {
+        id: "pouch-bean-3",
+        img: "/images/store/product/pouch-bean-3.jpg",
+        name: "綠豆",
+        price: "300",
+        info: "綠豆富含蛋白質和纖維，適合製作各種健康料理。",
+      },
+      {
+        id: "pouch-bean-4",
+        img: "/images/store/product/pouch-bean-4.jpg",
+        name: "花豆",
+        price: "300",
+        info: "花豆外觀美麗，口感濃郁，常用於甜品和湯品。",
+      },
+    ],
+    rhizome: [
+      {
+        id: "pouch-rhizome-1",
+        img: "/images/store/product/pouch-rhizome-1.jpg",
+        name: "紫米",
+        price: "300",
+        info: "富含營養的紫米，具有天然的甜味和獨特的口感。",
+      },
+      {
+        id: "pouch-rhizome-2",
+        img: "/images/store/product/pouch-rhizome-2.jpg",
+        name: "花生",
+        price: "300",
+        info: "香脆可口的花生，富含蛋白質和健康脂肪。",
+      },
+      {
+        id: "pouch-rhizome-3",
+        img: "/images/store/product/pouch-rhizome-3.jpg",
+        name: "薏仁",
+        price: "300",
+        info: "薏仁具有多種健康益處，是理想的養生食材。",
+      },
+      {
+        id: "pouch-rhizome-4",
+        img: "/images/store/product/pouch-rhizome-4.jpg",
+        name: "芋頭(1cm丁/2cm塊)",
+        price: "300",
+        info: "切丁或切塊的芋頭，口感綿密，適合各種料理。",
+      },
+      {
+        id: "pouch-rhizome-5",
+        img: "/images/store/product/pouch-rhizome-5.jpg",
+        name: "紫/黃地瓜(1cm丁/2cm塊)",
+        price: "300",
+        info: "富含維生素的地瓜，口感甜美，適合多種烹飪方式。",
+      },
+      {
+        id: "pouch-rhizome-6",
+        img: "/images/store/product/pouch-rhizome-6.jpg",
+        name: "燕麥粒",
+        price: "300",
+        info: "燕麥粒富含纖維和營養，是健康的選擇。",
+      },
+    ],
+    jelly: [
+      {
+        id: "pouch-jelly-1",
+        img: "/images/store/product/pouch-jelly-1.jpg",
+        name: "嫩仙草凍",
+        price: "300",
+        info: "嫩滑的仙草凍，口感細膩。",
+      },
+      {
+        id: "pouch-jelly-2",
+        img: "/images/store/product/pouch-jelly-2.jpg",
+        name: "愛玉凍",
+        price: "300",
+        info: "清爽的愛玉凍，口感滑順。",
+      },
+      {
+        id: "pouch-jelly-3",
+        img: "/images/store/product/pouch-jelly-3.jpg",
+        name: "荔枝凍",
+        price: "300",
+        info: "香甜的荔枝凍，口感滑順。",
+      },
+      {
+        id: "pouch-jelly-4",
+        img: "/images/store/product/pouch-jelly-4.jpg",
+        name: "烏龍茶凍",
+        price: "300",
+        info: "淡雅的烏龍茶凍，口感清新。",
+      },
+      {
+        id: "pouch-jelly-5",
+        img: "/images/store/product/pouch-jelly-5.jpg",
+        name: "胭脂茶凍",
+        price: "300",
+        info: "鮮豔的胭脂茶凍，口感滑順。",
+      },
+    ],
+    jam: [
+      {
+        id: "pouch-jam-1",
+        img: "/images/store/product/pouch-jam-1.jpg",
+        name: "芒果粒醬",
+        price: "300",
+        info: "香甜的芒果粒醬，適合搭配各種甜品。",
+      },
+      {
+        id: "pouch-jam-2",
+        img: "/images/store/product/pouch-jam-2.jpg",
+        name: "草莓醬",
+        price: "300",
+        info: "酸甜的草莓醬，適合搭配吐司和甜品。",
+      },
+      {
+        id: "pouch-jam-3",
+        img: "/images/store/product/pouch-jam-3.jpg",
+        name: "鳳梨醬",
+        price: "300",
+        info: "香甜的鳳梨醬，適合搭配吐司和甜品。",
+      },
+      {
+        id: "pouch-jam-4",
+        img: "/images/store/product/pouch-jam-4.jpg",
+        name: "火龍果醬",
+        price: "300",
+        info: "獨特的火龍果醬，風味獨特。",
+      },
+      {
+        id: "pouch-jam-5",
+        img: "/images/store/product/pouch-jam-5.jpg",
+        name: "打碎荔枝醬",
+        price: "300",
+        info: "清香的打碎荔枝醬，適合搭配甜品。",
+      },
+      {
+        id: "pouch-jam-6",
+        img: "/images/store/product/pouch-jam-6.jpg",
+        name: "紅柚醬",
+        price: "300",
+        info: "酸甜的紅柚醬，適合搭配各種甜品。",
+      },
+    ],
+    juice: [
+      {
+        id: "pouch-juice-1",
+        img: "/images/store/product/pouch-juice-1.jpg",
+        name: "黑糖冬瓜露",
+        price: "300",
+        info: "濃郁的黑糖冬瓜露，口感甜美，適合夏日消暑。",
+      },
+      {
+        id: "pouch-juice-2",
+        img: "/images/store/product/pouch-juice-2.jpg",
+        name: "燕麥豆奶",
+        price: "300",
+        info: "營養豐富的燕麥豆奶，口感滑順。",
+      },
+      {
+        id: "pouch-juice-3",
+        img: "/images/store/product/pouch-juice-3.jpg",
+        name: "仙草汁",
+        price: "300",
+        info: "清涼的仙草汁，消暑解渴。",
+      },
+    ],
+    other: [
+      {
+        id: "pouch-other-1",
+        img: "/images/store/product/pouch-other-1.jpg",
+        name: "水煮桂竹筍",
+        price: "300",
+        info: "清爽的水煮桂竹筍，口感脆嫩。",
+      },
+      {
+        id: "pouch-other-2",
+        img: "/images/store/product/pouch-other-2.jpg",
+        name: "滷花生",
+        price: "300",
+        info: "味道濃郁的滷花生，是理想的小吃。",
+      },
+      {
+        id: "pouch-other-3",
+        img: "/images/store/product/pouch-other-3.jpg",
+        name: "銀耳",
+        price: "300",
+        info: "銀耳富含膠質，常用於甜品，具有養生功效。",
+      },
+    ],
+  },
+};
 
 const CarouselItem = () => {
   const moveup = keyframes`
@@ -110,6 +409,44 @@ const CarouselItem = () => {
 
 const Store = ({ isContactUsOpen, setIsContactUsOpen }) => {
   const { t } = useTranslation("common");
+  const [selectedItem, setSelectedItem] = useState("All");
+  const [selectedResult, setSelectedResult] = useState([]);
+
+  useEffect(() => {
+    if (selectedItem === "All") {
+      setSelectedResult([
+        ...items.jar.bean,
+        ...items.jar.rhizome,
+        ...items.jar.other,
+        ...items.pouch.bean,
+        ...items.pouch.rhizome,
+        ...items.pouch.jelly,
+        ...items.pouch.jam,
+        ...items.pouch.juice,
+        ...items.pouch.other,
+      ]);
+    } else if (selectedItem === "Jar") {
+      setSelectedResult([
+        ...items.jar.bean,
+        ...items.jar.rhizome,
+        ...items.jar.other,
+      ]);
+    } else if (selectedItem === "Pouch") {
+      setSelectedResult([
+        ...items.pouch.bean,
+        ...items.pouch.rhizome,
+        ...items.pouch.jelly,
+        ...items.pouch.jam,
+        ...items.pouch.juice,
+        ...items.pouch.other,
+      ]);
+    } else {
+      const key1 = selectedItem.split("-")[0];
+      const key2 = selectedItem.split("-")[1];
+
+      setSelectedResult(items[key1][key2]);
+    }
+  }, [selectedItem]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -137,76 +474,109 @@ const Store = ({ isContactUsOpen, setIsContactUsOpen }) => {
       });
     };
   }, []);
-  return (
-    <Box>
-      <Box pos="relative" className="animate-item">
-        <Image w="100%" src="/images/store/hero-pc.jpg" />
 
-        <Flex
-          pos="absolute"
-          top="0px"
-          bottom="0px"
-          left="0px"
-          right="0px"
-          w="100%"
-          h="auto"
-          zIndex="999"
+  const businessSEO = {
+    title: "餐飲業務專區 - 寰宇食品",
+    description:
+      "寰宇食品為餐飲業提供多元包裝與穩定品質的健康農產品，包含各類豆類、芋頭、地瓜等。有效期限可保存2年，適合各行各業使用。",
+    keywords:
+      "寰宇食品, 餐飲業務, 健康食品, 創新農產品, 豆類加工, 多元包裝, 穩定品質",
+    author: "寰宇食品",
+    canonical: "https://www.example.com/business",
+  };
+  return (
+    <>
+      <Head>
+        <title key="title">{businessSEO.title}</title>
+        <meta
+          key="description"
+          name="description"
+          content={businessSEO.description}
+        />
+        <meta name="keywords" content={businessSEO.keywords} />
+        <meta key="og_title" property="og:title" content={businessSEO.title} />
+        <meta
+          key="og_image"
+          property="og:image"
+          content="/images/meta_pic.png"
+        />
+        <meta key="og_type" property="og:type" content="website" />
+        <meta
+          key="og_description"
+          property="og:description"
+          content={businessSEO.description}
+        />
+        <link rel="icon" href="/images/logo/logo_1.png" sizes="32x32" />
+      </Head>
+      <Box>
+        <Box pos="relative" className="animate-item">
+          <Image w="100%" src="/images/store/hero-pc.jpg" />
+
+          <Flex
+            pos="absolute"
+            top="0px"
+            bottom="0px"
+            left="0px"
+            right="0px"
+            w="100%"
+            h="auto"
+            zIndex="999"
+          >
+            <Flex flex="1" align="center" justify="center" p="12px">
+              <Text
+                fontSize={{ base: "24px", md: "36px" }}
+                fontWeight="500"
+                color="white"
+              >
+                {t("index_title")}
+              </Text>
+            </Flex>
+          </Flex>
+        </Box>
+        <Box
+          pos="relative"
+          zIndex="9960"
+          mt={{
+            base: "-15px",
+            md: "-30px",
+            lg: "-40px",
+            xl: "-50px",
+            "2xl": "-60px",
+          }}
+          pb={{ base: "300px", md: "400px" }}
         >
-          <Flex flex="1" align="center" justify="center" p="12px">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1200 60"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M0 30 Q 150 50 300 30 Q 450 10 600 30 Q 750 50 900 30 Q 1050 10 1200 30 V 60 H 0 Z"
+              fill="#FCFCFC"
+            ></path>
+          </svg>
+
+          <Text
+            fontSize="36px"
+            textAlign="center"
+            mt={{ base: "100px", md: "200px" }}
+          >
+            {t("our_products")}
+          </Text>
+          <Flex justify="center">
             <Text
-              fontSize={{ base: "24px", md: "36px" }}
-              fontWeight="500"
-              color="white"
+              mt="40px"
+              fontSize="24px"
+              textAlign="center"
+              maxW={{ base: "350px", md: "400px" }}
             >
-              {t("index_title")}
+              {t("index_info")}
             </Text>
           </Flex>
-        </Flex>
-      </Box>
-      <Box
-        pos="relative"
-        zIndex="9960"
-        mt={{
-          base: "-15px",
-          md: "-30px",
-          lg: "-40px",
-          xl: "-50px",
-          "2xl": "-60px",
-        }}
-        pb={{ base: "300px", md: "400px" }}
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1200 60"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M0 30 Q 150 50 300 30 Q 450 10 600 30 Q 750 50 900 30 Q 1050 10 1200 30 V 60 H 0 Z"
-            fill="#FCFCFC"
-          ></path>
-        </svg>
 
-        <Text
-          fontSize="36px"
-          textAlign="center"
-          mt={{ base: "100px", md: "200px" }}
-        >
-          {t("index_title")}
-        </Text>
-        <Flex justify="center">
-          <Text
-            mt="40px"
-            fontSize="24px"
-            textAlign="center"
-            maxW={{ base: "350px", md: "400px" }}
-          >
-            {t("index_info")}
-          </Text>
-        </Flex>
-
-        <Flex w="full" pos="absolute" bottom={{ base: "40px", md: "100px" }}>
-          <CarouselItem />
-          {/* <Image
+          <Flex w="full" pos="absolute" bottom={{ base: "40px", md: "100px" }}>
+            <CarouselItem />
+            {/* <Image
             ml="40px"
             src="/images/store/lead_slider_1_1.png"
             w={{ base: "60px", md: "200px" }}
@@ -217,73 +587,78 @@ const Store = ({ isContactUsOpen, setIsContactUsOpen }) => {
             src="/images/store/lead_slider_2_1.png"
             w={{ base: "60px", md: "200px" }}
           /> */}
-        </Flex>
-      </Box>
+          </Flex>
+        </Box>
 
-      <Box
-        className="animate-item"
-        pos="relative"
-        zIndex="9960"
-        mt={{
-          base: "-15px",
-          md: "-30px",
-          lg: "-40px",
-          xl: "-50px",
-          "2xl": "-60px",
-        }}
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1200 60"
-          preserveAspectRatio="none"
+        <Box
+          className="animate-item"
+          pos="relative"
+          zIndex="9960"
+          mt={{
+            base: "-15px",
+            md: "-30px",
+            lg: "-40px",
+            xl: "-50px",
+            "2xl": "-60px",
+          }}
         >
-          <path
-            d="M0 30 Q 150 50 300 30 Q 450 10 600 30 Q 750 50 900 30 Q 1050 10 1200 30 V 60 H 0 Z"
-            fill="white"
-          ></path>
-        </svg>
-      </Box>
-      <Box bg="white" mt="-1px">
-        {PRODUCT_LIST.map((product, index) => {
-          return (
-            <Flex
-              key={product.id}
-              className="animate-item"
-              w="full"
-              flexDir={{
-                base: "column",
-                md: index % 2 === 0 ? "row" : "row-reverse",
-              }}
-            >
-              <Flex p="20px">
-                <Image
-                  border="4px solid white"
-                  borderRadius="4px"
-                  src={product.image}
-                  w={{ base: "100%", md: "50vw" }}
-                />
-              </Flex>
-              <Flex flex="1" align="center" justify="center" p="24px">
-                <Flex
-                  w="100%"
-                  maxW="400px"
-                  flexDir="column"
-                  align="center"
-                  justify="center"
-                >
-                  <Image src={product.title_image} w="100px" />
-                  <Text
-                    mt="24px"
-                    fontSize="24px"
-                    fontWeight="500"
-                    textAlign="center"
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1200 60"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M0 30 Q 150 50 300 30 Q 450 10 600 30 Q 750 50 900 30 Q 1050 10 1200 30 V 60 H 0 Z"
+              fill="white"
+            ></path>
+          </svg>
+        </Box>
+        <Box bg="white" mt="-1px">
+          {PRODUCT_LIST.map((product, index) => {
+            return (
+              <Flex
+                key={product.id}
+                className="animate-item"
+                w="full"
+                flexDir={{
+                  base: "column",
+                  md: index % 2 === 0 ? "row" : "row-reverse",
+                }}
+              >
+                <Flex p="20px">
+                  <Image
+                    border="4px solid white"
+                    borderRadius="4px"
+                    src={product.image}
+                    w={{ base: "100%", md: "50vw" }}
+                  />
+                </Flex>
+                <Flex flex="1" align="center" justify="center" p="24px">
+                  <Flex
+                    w="100%"
+                    maxW="400px"
+                    flexDir="column"
+                    align="center"
+                    justify="center"
                   >
-                    {product.description}
-                  </Text>
+                    <Image src={product.title_image} w="100px" />
+                    <Text
+                      mt="24px"
+                      fontSize="24px"
+                      fontWeight="500"
+                      textAlign="center"
+                    >
+                      {product.description}
+                    </Text>
 
-                  <Flex w="full" align="center" justify="space-between">
-                    <Text>6個入 ¥430(税込)</Text>
                     <Flex
+                      mt="20px"
+                      w="full"
+                      align="center"
+                      justify="space-between"
+                    >
+                      <Text>{product.price}</Text>
+                      {/* <Flex
                       w="150px"
                       h="40px"
                       align="center"
@@ -300,16 +675,16 @@ const Store = ({ isContactUsOpen, setIsContactUsOpen }) => {
                       <Text fontWeight="500" fontSize="20px" color="white">
                         {t("nav_contact")}
                       </Text>
+                    </Flex> */}
                     </Flex>
                   </Flex>
                 </Flex>
               </Flex>
-            </Flex>
-          );
-        })}
-      </Box>
+            );
+          })}
+        </Box>
 
-      {/* <Flex
+        {/* <Flex
         w="200px"
         h="50px"
         align="center"
@@ -327,7 +702,174 @@ const Store = ({ isContactUsOpen, setIsContactUsOpen }) => {
           {t("nav_contact")}
         </Text>
       </Flex> */}
-    </Box>
+
+        <Flex
+          bg="white"
+          ml={{ base: "20px", md: "80px" }}
+          mr={{ base: "20px", md: "40px" }}
+          py={{ base: "20px", md: "40px" }}
+          flexDir={{ base: "column", md: "row" }}
+        >
+          <Box w="300px" minW="300px" mr="20px">
+            <Text
+              p="5px"
+              fontSize="20px"
+              lineHeight="28px"
+              color="#313131"
+              fontWeight="600"
+              cursor="pointer"
+              onClick={() => setSelectedItem("All")}
+              bg={selectedItem === "All" ? "#F7F7F7" : "white"}
+            >
+              產品分類
+            </Text>
+            <Box mt="10px">
+              <Text
+                p="5px"
+                ml="20px"
+                fontSize="20px"
+                lineHeight="28px"
+                color="#313131"
+                fontWeight="500"
+                cursor="pointer"
+                bg={selectedItem === "Jar" ? "#F7F7F7" : "white"}
+                onClick={() => setSelectedItem("Jar")}
+              >
+                罐裝
+              </Text>
+              <Box ml="40px" mt="5px">
+                <Text
+                  p="5px"
+                  cursor="pointer"
+                  bg={selectedItem === "jar-bean" ? "#F7F7F7" : "white"}
+                  onClick={() => setSelectedItem("jar-bean")}
+                >
+                  豆類(4)
+                </Text>
+                <Text
+                  p="5px"
+                  cursor="pointer"
+                  bg={selectedItem === "jar-rhizome" ? "#F7F7F7" : "white"}
+                  onClick={() => setSelectedItem("jar-rhizome")}
+                >
+                  塊根類(6)
+                </Text>
+                <Text
+                  p="5px"
+                  cursor="pointer"
+                  bg={selectedItem === "jar-other" ? "#F7F7F7" : "white"}
+                  onClick={() => setSelectedItem("jar-other")}
+                >
+                  其他(1)
+                </Text>
+              </Box>
+            </Box>
+            <Box mt="10px">
+              <Text
+                p="5px"
+                ml="20px"
+                fontSize="20px"
+                lineHeight="28px"
+                color="#313131"
+                fontWeight="500"
+                cursor="pointer"
+                bg={selectedItem === "Pouch" ? "#F7F7F7" : "white"}
+                onClick={() => setSelectedItem("Pouch")}
+              >
+                袋裝
+              </Text>
+              <Box ml="40px" mt="5px">
+                <Text
+                  p="5px"
+                  cursor="pointer"
+                  bg={selectedItem === "pouch-bean" ? "#F7F7F7" : "white"}
+                  onClick={() => setSelectedItem("pouch-bean")}
+                >
+                  豆類(4)
+                </Text>
+                <Text
+                  p="5px"
+                  cursor="pointer"
+                  bg={selectedItem === "pouch-rhizome" ? "#F7F7F7" : "white"}
+                  onClick={() => setSelectedItem("pouch-rhizome")}
+                >
+                  塊根類(6)
+                </Text>
+                <Text
+                  p="5px"
+                  cursor="pointer"
+                  bg={selectedItem === "pouch-jelly" ? "#F7F7F7" : "white"}
+                  onClick={() => setSelectedItem("pouch-jelly")}
+                >
+                  果凍(5)
+                </Text>
+                <Text
+                  p="5px"
+                  cursor="pointer"
+                  bg={selectedItem === "pouch-jam" ? "#F7F7F7" : "white"}
+                  onClick={() => setSelectedItem("pouch-jam")}
+                >
+                  果醬(6)
+                </Text>
+                <Text
+                  p="5px"
+                  cursor="pointer"
+                  bg={selectedItem === "pouch-juice" ? "#F7F7F7" : "white"}
+                  onClick={() => setSelectedItem("pouch-juice")}
+                >
+                  果汁(3)
+                </Text>
+                <Text
+                  p="5px"
+                  cursor="pointer"
+                  bg={selectedItem === "pouch-other" ? "#F7F7F7" : "white"}
+                  onClick={() => setSelectedItem("pouch-other")}
+                >
+                  其他(3)
+                </Text>
+              </Box>
+            </Box>
+          </Box>
+
+          <Wrap maxW="">
+            {selectedResult.map((product, index) => {
+              return (
+                <WrapItem key={product.id}>
+                  <Box
+                    key={product.id}
+                    w={{ base: "320px", md: "300px" }}
+                    h="350px"
+                    m="20px"
+                    bg="#F7F7F7"
+                    borderRadius="8px"
+                  >
+                    <Image
+                      src={product.img}
+                      w="100%"
+                      h="200px"
+                      borderRadius="8px 8px 0px 0px"
+                    />
+                    <Flex flexDir="column" p="16px" h="100%">
+                      <Text fontSize="20px" fontWeight="500">
+                        {product.name}
+                      </Text>
+                      <Text fontSize="16px" color="#313131">
+                        {product.info}
+                      </Text>
+                      <Flex justify="space-between" align="center" mt="10px">
+                        <Text fontSize="16px" color="#313131">
+                          $TWD {product.price}
+                        </Text>
+                      </Flex>
+                    </Flex>
+                  </Box>
+                </WrapItem>
+              );
+            })}
+          </Wrap>
+        </Flex>
+      </Box>
+    </>
   );
 };
 
