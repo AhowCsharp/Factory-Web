@@ -15,14 +15,13 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 
 const IMAGE_LIST = [
-  "/images/store/lead_slider_1_1.png",
-  "/images/store/lead_slider_1_2.png",
-  "/images/store/lead_slider_2_1.png",
-  "/images/store/lead_slider_2_2.png",
-  "/images/store/lead_slider_1_1.png",
-  "/images/store/lead_slider_1_2.png",
-  "/images/store/lead_slider_2_1.png",
-  "/images/store/lead_slider_2_2.png",
+  "/images/store/lead_slider_1_1.jpg",
+  "/images/store/lead_slider_1_2.jpg",
+  "/images/store/lead_slider_1_3.jpg",
+  "/images/store/lead_slider_1_4.jpg",
+  "/images/store/lead_slider_1_5.jpg",
+  "/images/store/lead_slider_1_6.jpg",
+  "/images/store/lead_slider_1_7.jpg",
 ];
 
 const PRODUCT_LIST = [
@@ -30,17 +29,15 @@ const PRODUCT_LIST = [
     id: 1,
     image: "/images/store/bean_1.jpg",
     title_image: "/images/store/ninjin.svg",
-    price: "3KG $TWD 300",
-    description:
-      "花豆是富含蛋白質與纖維的豆類食材，外觀有美麗的斑點，常用於甜品和湯品，味道濃郁，口感綿密。",
+    price: "",
+    description: "store_main_product_1",
   },
   {
     id: 2,
     image: "/images/store/bean_2.jpg",
     title_image: "/images/store/ninjin.svg",
-    price: "3KG $TWD 300",
-    description:
-      "蕃薯富含維生素和纖維，口感甜美且多樣化，無論烤、煮或蒸，都能保留其獨特風味和營養價值。",
+    price: "",
+    description: "store_main_product_2",
   },
   // {
   //   id: 3,
@@ -73,29 +70,115 @@ const items = {
     bean: [
       {
         id: "jar-bean-1",
-        img: "/images/store/product/jar-bean-1.jpg",
-        name: "紫米紅豆",
+        img: "/images/store/product/ex.jpg",
+        name: "紫米紅豆(3KG)",
         price: "300",
         info: "紫米與紅豆的完美結合，口感豐富，適合各種甜品和湯品。",
       },
       {
         id: "jar-bean-2",
-        img: "/images/store/product/jar-bean-2.jpg",
-        name: "紅豆",
+        img: "/images/store/product/ex.jpg",
+        name: "紫米紅豆(2KG)",
+        price: "300",
+        info: "紫米與紅豆的完美結合，口感豐富，適合各種甜品和湯品。",
+      },
+      {
+        id: "jar-bean-3",
+        img: "/images/store/product/ex.jpg",
+        name: "紫米紅豆(900G)",
+        price: "300",
+        info: "紫米與紅豆的完美結合，口感豐富，適合各種甜品和湯品。",
+      },
+      {
+        id: "jar-bean-4",
+        img: "/images/store/product/ex.jpg",
+        name: "紫米紅豆(600G)",
+        price: "300",
+        info: "紫米與紅豆的完美結合，口感豐富，適合各種甜品和湯品。",
+      },
+
+      {
+        id: "jar-bean-5",
+        img: "/images/store/product/jar-bean-2_1.jpg",
+        name: "紅豆(3KG)",
         price: "300",
         info: "紅豆是經典的甜品食材，口感綿密，味道濃郁。",
       },
       {
-        id: "jar-bean-3",
+        id: "jar-bean-6",
+        img: "/images/store/product/jar-bean-2_2.jpg",
+        name: "紅豆(2KG)",
+        price: "300",
+        info: "紅豆是經典的甜品食材，口感綿密，味道濃郁。",
+      },
+      {
+        id: "jar-bean-7",
+        img: "/images/store/product/jar-bean-2_3.jpg",
+        name: "紅豆(900G)",
+        price: "300",
+        info: "紅豆是經典的甜品食材，口感綿密，味道濃郁。",
+      },
+      {
+        id: "jar-bean-8",
+        img: "/images/store/product/jar-bean-2_4.jpg",
+        name: "紅豆(600G)",
+        price: "300",
+        info: "紅豆是經典的甜品食材，口感綿密，味道濃郁。",
+      },
+
+      {
+        id: "jar-bean-9",
         img: "/images/store/product/jar-bean-3.jpg",
-        name: "綠豆",
+        name: "綠豆(3KG)",
         price: "300",
         info: "綠豆富含蛋白質和纖維，適合製作各種健康料理。",
       },
       {
-        id: "jar-bean-4",
+        id: "jar-bean-10",
+        img: "/images/store/product/ex.jpg",
+        name: "綠豆(2KG)",
+        price: "300",
+        info: "綠豆富含蛋白質和纖維，適合製作各種健康料理。",
+      },
+      {
+        id: "jar-bean-11",
+        img: "/images/store/product/ex.jpg",
+        name: "綠豆(900G)",
+        price: "300",
+        info: "綠豆富含蛋白質和纖維，適合製作各種健康料理。",
+      },
+      {
+        id: "jar-bean-12",
+        img: "/images/store/product/ex.jpg",
+        name: "綠豆(600G)",
+        price: "300",
+        info: "綠豆富含蛋白質和纖維，適合製作各種健康料理。",
+      },
+      {
+        id: "jar-bean-13",
         img: "/images/store/product/jar-bean-4.jpg",
-        name: "花豆",
+        name: "花豆(3KG)",
+        price: "300",
+        info: "花豆外觀美麗，口感濃郁，常用於甜品和湯品。",
+      },
+      {
+        id: "jar-bean-14",
+        img: "/images/store/product/ex.jpg",
+        name: "花豆(2KG)",
+        price: "300",
+        info: "花豆外觀美麗，口感濃郁，常用於甜品和湯品。",
+      },
+      {
+        id: "jar-bean-15",
+        img: "/images/store/product/ex.jpg",
+        name: "花豆(900G)",
+        price: "300",
+        info: "花豆外觀美麗，口感濃郁，常用於甜品和湯品。",
+      },
+      {
+        id: "jar-bean-16",
+        img: "/images/store/product/ex.jpg",
+        name: "花豆(600G)",
         price: "300",
         info: "花豆外觀美麗，口感濃郁，常用於甜品和湯品。",
       },
@@ -103,43 +186,174 @@ const items = {
     rhizome: [
       {
         id: "jar-rhizome-1",
-        img: "/images/store/product/jar-rhizome-1.jpg",
-        name: "紫米",
+        img: "/images/store/product/ex.jpg",
+        name: "紫米(3KG)",
         price: "300",
         info: "富含營養的紫米，具有天然的甜味和獨特的口感。",
       },
       {
         id: "jar-rhizome-2",
-        img: "/images/store/product/jar-rhizome-2.jpg",
-        name: "花生",
+        img: "/images/store/product/ex.jpg",
+        name: "紫米(2KG)",
+        price: "300",
+        info: "富含營養的紫米，具有天然的甜味和獨特的口感。",
+      },
+      {
+        id: "jar-rhizome-3",
+        img: "/images/store/product/ex.jpg",
+        name: "紫米(900G)",
+        price: "300",
+        info: "富含營養的紫米，具有天然的甜味和獨特的口感。",
+      },
+      {
+        id: "jar-rhizome-4",
+        img: "/images/store/product/ex.jpg",
+        name: "紫米(600G)",
+        price: "300",
+        info: "富含營養的紫米，具有天然的甜味和獨特的口感。",
+      },
+
+      {
+        id: "jar-rhizome-5",
+        img: "/images/store/product/jar-rhizome-2_1.jpg",
+        name: "花生(3KG)",
         price: "300",
         info: "香脆可口的花生，富含蛋白質和健康脂肪。",
       },
       {
-        id: "jar-rhizome-3",
-        img: "/images/store/product/jar-rhizome-3.jpg",
-        name: "薏仁",
+        id: "jar-rhizome-6",
+        img: "/images/store/product/jar-rhizome-2_2.jpg",
+        name: "花生(2KG)",
+        price: "300",
+        info: "香脆可口的花生，富含蛋白質和健康脂肪。",
+      },
+      {
+        id: "jar-rhizome-7",
+        img: "/images/store/product/jar-rhizome-2_3.jpg",
+        name: "花生(900G)",
+        price: "300",
+        info: "香脆可口的花生，富含蛋白質和健康脂肪。",
+      },
+      {
+        id: "jar-rhizome-8",
+        img: "/images/store/product/jar-rhizome-2_4.jpg",
+        name: "花生(600G)",
+        price: "300",
+        info: "香脆可口的花生，富含蛋白質和健康脂肪。",
+      },
+
+      {
+        id: "jar-rhizome-9",
+        img: "/images/store/product/ex.jpg",
+        name: "薏仁(3KG)",
         price: "300",
         info: "薏仁具有多種健康益處，是理想的養生食材。",
       },
       {
-        id: "jar-rhizome-4",
-        img: "/images/store/product/jar-rhizome-4.jpg",
-        name: "芋頭(1cm丁/2cm塊)",
+        id: "jar-rhizome-10",
+        img: "/images/store/product/jar-rhizome-3_3.jpg",
+        name: "薏仁(2KG)",
+        price: "300",
+        info: "薏仁具有多種健康益處，是理想的養生食材。",
+      },
+      {
+        id: "jar-rhizome-11",
+        img: "/images/store/product/jar-rhizome-3_2.jpg",
+        name: "薏仁(900G)",
+        price: "300",
+        info: "薏仁具有多種健康益處，是理想的養生食材。",
+      },
+      {
+        id: "jar-rhizome-12",
+        img: "/images/store/product/jar-rhizome-3.jpg",
+        name: "薏仁(600G)",
+        price: "300",
+        info: "薏仁具有多種健康益處，是理想的養生食材。",
+      },
+
+      {
+        id: "jar-rhizome-13",
+        img: "/images/store/product/jar-rhizome-4_1.jpg",
+        name: "芋頭(1cm丁/2cm塊)(3KG)",
         price: "300",
         info: "切丁或切塊的芋頭，口感綿密，適合各種料理。",
       },
       {
-        id: "jar-rhizome-5",
-        img: "/images/store/product/jar-rhizome-5.jpg",
-        name: "紫/黃地瓜(1cm丁/2cm塊)",
+        id: "jar-rhizome-14",
+        img: "/images/store/product/jar-rhizome-4_2.jpg",
+        name: "芋頭(1cm丁/2cm塊)(2KG)",
+        price: "300",
+        info: "切丁或切塊的芋頭，口感綿密，適合各種料理。",
+      },
+      {
+        id: "jar-rhizome-15",
+        img: "/images/store/product/jar-rhizome-4_3.jpg",
+        name: "芋頭(1cm丁/2cm塊)(900G)",
+        price: "300",
+        info: "切丁或切塊的芋頭，口感綿密，適合各種料理。",
+      },
+      {
+        id: "jar-rhizome-16",
+        img: "/images/store/product/jar-rhizome-4_4.jpg",
+        name: "芋頭(1cm丁/2cm塊)(600G)",
+        price: "300",
+        info: "切丁或切塊的芋頭，口感綿密，適合各種料理。",
+      },
+
+      {
+        id: "jar-rhizome-17",
+        img: "/images/store/product/ex.jpg",
+        name: "紫/黃地瓜(1cm丁/2cm塊)(3kG)",
         price: "300",
         info: "富含維生素的地瓜，口感甜美，適合多種烹飪方式。",
       },
       {
-        id: "jar-rhizome-6",
+        id: "jar-rhizome-18",
+        img: "/images/store/product/jar-rhizome-5_1.jpg",
+        name: "紫/黃地瓜(1cm丁/2cm塊)(2KG)",
+        price: "300",
+        info: "富含維生素的地瓜，口感甜美，適合多種烹飪方式。",
+      },
+      {
+        id: "jar-rhizome-19",
+        img: "/images/store/product/jar-rhizome-5_2.jpg",
+        name: "紫/黃地瓜(1cm丁/2cm塊)(900G)",
+        price: "300",
+        info: "富含維生素的地瓜，口感甜美，適合多種烹飪方式。",
+      },
+      {
+        id: "jar-rhizome-20",
+        img: "/images/store/product/jar-rhizome-5_3.jpg",
+        name: "紫/黃地瓜(1cm丁/2cm塊)(600G)",
+        price: "300",
+        info: "富含維生素的地瓜，口感甜美，適合多種烹飪方式。",
+      },
+
+      {
+        id: "jar-rhizome-21",
         img: "/images/store/product/jar-rhizome-6.jpg",
-        name: "燕麥粒",
+        name: "燕麥粒(3KG)",
+        price: "300",
+        info: "燕麥粒富含纖維和營養，是健康的選擇。",
+      },
+      {
+        id: "jar-rhizome-22",
+        img: "/images/store/product/ex.jpg",
+        name: "燕麥粒(2KG)",
+        price: "300",
+        info: "燕麥粒富含纖維和營養，是健康的選擇。",
+      },
+      {
+        id: "jar-rhizome-23",
+        img: "/images/store/product/ex.jpg",
+        name: "燕麥粒(900G)",
+        price: "300",
+        info: "燕麥粒富含纖維和營養，是健康的選擇。",
+      },
+      {
+        id: "jar-rhizome-24",
+        img: "/images/store/product/ex.jpg",
+        name: "燕麥粒(600G)",
         price: "300",
         info: "燕麥粒富含纖維和營養，是健康的選擇。",
       },
@@ -147,8 +361,29 @@ const items = {
     other: [
       {
         id: "jar-other-1",
-        img: "/images/store/product/jar-other-1.jpg",
-        name: "銀耳",
+        img: "/images/store/product/ex.jpg",
+        name: "銀耳(3KG)",
+        price: "300",
+        info: "銀耳富含膠質，常用於甜品，具有養生功效。",
+      },
+      {
+        id: "jar-other-2",
+        img: "/images/store/product/ex.jpg",
+        name: "銀耳(2KG)",
+        price: "300",
+        info: "銀耳富含膠質，常用於甜品，具有養生功效。",
+      },
+      {
+        id: "jar-other-3",
+        img: "/images/store/product/ex.jpg",
+        name: "銀耳(900G)",
+        price: "300",
+        info: "銀耳富含膠質，常用於甜品，具有養生功效。",
+      },
+      {
+        id: "jar-other-4",
+        img: "/images/store/product/ex.jpg",
+        name: "銀耳(600G)",
         price: "300",
         info: "銀耳富含膠質，常用於甜品，具有養生功效。",
       },
@@ -158,29 +393,29 @@ const items = {
     bean: [
       {
         id: "pouch-bean-1",
-        img: "/images/store/product/pouch-bean-1.jpg",
-        name: "紫米紅豆",
+        img: "/images/store/product/ex.jpg",
+        name: "紫米紅豆(1KG)",
         price: "300",
         info: "紫米與紅豆的完美結合，口感豐富，適合各種甜品和湯品。",
       },
       {
         id: "pouch-bean-2",
-        img: "/images/store/product/pouch-bean-2.jpg",
-        name: "紅豆",
+        img: "/images/store/product/ex.jpg",
+        name: "紅豆(1KG)",
         price: "300",
         info: "紅豆是經典的甜品食材，口感綿密，味道濃郁。",
       },
       {
         id: "pouch-bean-3",
-        img: "/images/store/product/pouch-bean-3.jpg",
-        name: "綠豆",
+        img: "/images/store/product/ex.jpg",
+        name: "綠豆(1KG)",
         price: "300",
         info: "綠豆富含蛋白質和纖維，適合製作各種健康料理。",
       },
       {
         id: "pouch-bean-4",
-        img: "/images/store/product/pouch-bean-4.jpg",
-        name: "花豆",
+        img: "/images/store/product/ex.jpg",
+        name: "花豆(1KG)",
         price: "300",
         info: "花豆外觀美麗，口感濃郁，常用於甜品和湯品。",
       },
@@ -188,43 +423,43 @@ const items = {
     rhizome: [
       {
         id: "pouch-rhizome-1",
-        img: "/images/store/product/pouch-rhizome-1.jpg",
-        name: "紫米",
+        img: "/images/store/product/ex.jpg",
+        name: "紫米(1KG)",
         price: "300",
         info: "富含營養的紫米，具有天然的甜味和獨特的口感。",
       },
       {
         id: "pouch-rhizome-2",
-        img: "/images/store/product/pouch-rhizome-2.jpg",
-        name: "花生",
+        img: "/images/store/product/ex.jpg",
+        name: "花生(1KG)",
         price: "300",
         info: "香脆可口的花生，富含蛋白質和健康脂肪。",
       },
       {
         id: "pouch-rhizome-3",
-        img: "/images/store/product/pouch-rhizome-3.jpg",
-        name: "薏仁",
+        img: "/images/store/product/ex.jpg",
+        name: "薏仁(1KG)",
         price: "300",
         info: "薏仁具有多種健康益處，是理想的養生食材。",
       },
       {
         id: "pouch-rhizome-4",
-        img: "/images/store/product/pouch-rhizome-4.jpg",
-        name: "芋頭(1cm丁/2cm塊)",
+        img: "/images/store/product/ex.jpg",
+        name: "芋頭(1cm丁/2cm塊)(1KG)",
         price: "300",
         info: "切丁或切塊的芋頭，口感綿密，適合各種料理。",
       },
       {
         id: "pouch-rhizome-5",
-        img: "/images/store/product/pouch-rhizome-5.jpg",
-        name: "紫/黃地瓜(1cm丁/2cm塊)",
+        img: "/images/store/product/ex.jpg",
+        name: "紫/黃地瓜(1cm丁/2cm塊)(1KG)",
         price: "300",
         info: "富含維生素的地瓜，口感甜美，適合多種烹飪方式。",
       },
       {
         id: "pouch-rhizome-6",
-        img: "/images/store/product/pouch-rhizome-6.jpg",
-        name: "燕麥粒",
+        img: "/images/store/product/ex.jpg",
+        name: "燕麥粒(1KG)",
         price: "300",
         info: "燕麥粒富含纖維和營養，是健康的選擇。",
       },
@@ -232,36 +467,36 @@ const items = {
     jelly: [
       {
         id: "pouch-jelly-1",
-        img: "/images/store/product/pouch-jelly-1.jpg",
-        name: "嫩仙草凍",
+        img: "/images/store/product/ex.jpg",
+        name: "嫩仙草凍(1KG)",
         price: "300",
         info: "嫩滑的仙草凍，口感細膩。",
       },
       {
         id: "pouch-jelly-2",
-        img: "/images/store/product/pouch-jelly-2.jpg",
-        name: "愛玉凍",
+        img: "/images/store/product/ex.jpg",
+        name: "愛玉凍(1KG)",
         price: "300",
         info: "清爽的愛玉凍，口感滑順。",
       },
       {
         id: "pouch-jelly-3",
-        img: "/images/store/product/pouch-jelly-3.jpg",
-        name: "荔枝凍",
+        img: "/images/store/product/ex.jpg",
+        name: "荔枝凍(1KG)",
         price: "300",
         info: "香甜的荔枝凍，口感滑順。",
       },
       {
         id: "pouch-jelly-4",
-        img: "/images/store/product/pouch-jelly-4.jpg",
-        name: "烏龍茶凍",
+        img: "/images/store/product/ex.jpg",
+        name: "烏龍茶凍(1KG)",
         price: "300",
         info: "淡雅的烏龍茶凍，口感清新。",
       },
       {
         id: "pouch-jelly-5",
-        img: "/images/store/product/pouch-jelly-5.jpg",
-        name: "胭脂茶凍",
+        img: "/images/store/product/ex.jpg",
+        name: "胭脂茶凍(1KG)",
         price: "300",
         info: "鮮豔的胭脂茶凍，口感滑順。",
       },
@@ -269,43 +504,43 @@ const items = {
     jam: [
       {
         id: "pouch-jam-1",
-        img: "/images/store/product/pouch-jam-1.jpg",
-        name: "芒果粒醬",
+        img: "/images/store/product/ex.jpg",
+        name: "芒果粒醬(1KG)",
         price: "300",
         info: "香甜的芒果粒醬，適合搭配各種甜品。",
       },
       {
         id: "pouch-jam-2",
-        img: "/images/store/product/pouch-jam-2.jpg",
-        name: "草莓醬",
+        img: "/images/store/product/ex.jpg",
+        name: "草莓醬(1KG)",
         price: "300",
         info: "酸甜的草莓醬，適合搭配吐司和甜品。",
       },
       {
         id: "pouch-jam-3",
-        img: "/images/store/product/pouch-jam-3.jpg",
-        name: "鳳梨醬",
+        img: "/images/store/product/ex.jpg",
+        name: "鳳梨醬(1KG)",
         price: "300",
         info: "香甜的鳳梨醬，適合搭配吐司和甜品。",
       },
       {
         id: "pouch-jam-4",
-        img: "/images/store/product/pouch-jam-4.jpg",
-        name: "火龍果醬",
+        img: "/images/store/product/ex.jpg",
+        name: "火龍果醬(1KG)",
         price: "300",
         info: "獨特的火龍果醬，風味獨特。",
       },
       {
         id: "pouch-jam-5",
-        img: "/images/store/product/pouch-jam-5.jpg",
-        name: "打碎荔枝醬",
+        img: "/images/store/product/ex.jpg",
+        name: "打碎荔枝醬(1KG)",
         price: "300",
         info: "清香的打碎荔枝醬，適合搭配甜品。",
       },
       {
         id: "pouch-jam-6",
-        img: "/images/store/product/pouch-jam-6.jpg",
-        name: "紅柚醬",
+        img: "/images/store/product/ex.jpg",
+        name: "紅柚醬(1KG)",
         price: "300",
         info: "酸甜的紅柚醬，適合搭配各種甜品。",
       },
@@ -313,22 +548,22 @@ const items = {
     juice: [
       {
         id: "pouch-juice-1",
-        img: "/images/store/product/pouch-juice-1.jpg",
-        name: "黑糖冬瓜露",
+        img: "/images/store/product/ex.jpg",
+        name: "黑糖冬瓜露(1KG)",
         price: "300",
         info: "濃郁的黑糖冬瓜露，口感甜美，適合夏日消暑。",
       },
       {
         id: "pouch-juice-2",
-        img: "/images/store/product/pouch-juice-2.jpg",
-        name: "燕麥豆奶",
+        img: "/images/store/product/ex.jpg",
+        name: "燕麥豆奶(1KG)",
         price: "300",
         info: "營養豐富的燕麥豆奶，口感滑順。",
       },
       {
         id: "pouch-juice-3",
-        img: "/images/store/product/pouch-juice-3.jpg",
-        name: "仙草汁",
+        img: "/images/store/product/ex.jpg",
+        name: "仙草汁(1KG)",
         price: "300",
         info: "清涼的仙草汁，消暑解渴。",
       },
@@ -336,22 +571,22 @@ const items = {
     other: [
       {
         id: "pouch-other-1",
-        img: "/images/store/product/pouch-other-1.jpg",
-        name: "水煮桂竹筍",
+        img: "/images/store/product/ex.jpg",
+        name: "水煮桂竹筍(1KG)",
         price: "300",
         info: "清爽的水煮桂竹筍，口感脆嫩。",
       },
       {
         id: "pouch-other-2",
-        img: "/images/store/product/pouch-other-2.jpg",
-        name: "滷花生",
+        img: "/images/store/product/ex.jpg",
+        name: "滷花生(1KG)",
         price: "300",
         info: "味道濃郁的滷花生，是理想的小吃。",
       },
       {
         id: "pouch-other-3",
-        img: "/images/store/product/pouch-other-3.jpg",
-        name: "銀耳",
+        img: "/images/store/product/ex.jpg",
+        name: "銀耳(1KG)",
         price: "300",
         info: "銀耳富含膠質，常用於甜品，具有養生功效。",
       },
@@ -373,7 +608,7 @@ const CarouselItem = () => {
   return (
     <Box overflow="hidden" zIndex="9950" pos="relative" mb="-20px">
       <Flex
-        w={{ base: "1600px", md: "1600px" }}
+        w={{ base: "4200px", md: "5600px" }}
         overflow="hidden"
         direction="row"
         animation={animation}
@@ -382,7 +617,7 @@ const CarouselItem = () => {
           return (
             <Box
               key={index}
-              w={{ base: "200px", md: "200px" }}
+              w={{ base: "300px", md: "400px" }}
               h="100%"
               border="4px solid white"
             >
@@ -394,7 +629,7 @@ const CarouselItem = () => {
           return (
             <Box
               key={index}
-              w={{ base: "200px", md: "200px" }}
+              w={{ base: "300px", md: "400px" }}
               h="100%"
               border="4px solid white"
             >
@@ -648,7 +883,7 @@ const Store = ({ isContactUsOpen, setIsContactUsOpen }) => {
                       fontWeight="500"
                       textAlign="center"
                     >
-                      {product.description}
+                      {t(product.description)}
                     </Text>
 
                     <Flex
@@ -721,7 +956,7 @@ const Store = ({ isContactUsOpen, setIsContactUsOpen }) => {
               onClick={() => setSelectedItem("All")}
               bg={selectedItem === "All" ? "#F7F7F7" : "white"}
             >
-              產品分類
+              {t("store_category")}
             </Text>
             <Box mt="10px">
               <Text
@@ -735,7 +970,7 @@ const Store = ({ isContactUsOpen, setIsContactUsOpen }) => {
                 bg={selectedItem === "Jar" ? "#F7F7F7" : "white"}
                 onClick={() => setSelectedItem("Jar")}
               >
-                罐裝
+                {t("store_category_jar")}
               </Text>
               <Box ml="40px" mt="5px">
                 <Text
@@ -744,7 +979,7 @@ const Store = ({ isContactUsOpen, setIsContactUsOpen }) => {
                   bg={selectedItem === "jar-bean" ? "#F7F7F7" : "white"}
                   onClick={() => setSelectedItem("jar-bean")}
                 >
-                  豆類(4)
+                  {t("store_category_bean")}({items.jar.bean.length})
                 </Text>
                 <Text
                   p="5px"
@@ -752,7 +987,7 @@ const Store = ({ isContactUsOpen, setIsContactUsOpen }) => {
                   bg={selectedItem === "jar-rhizome" ? "#F7F7F7" : "white"}
                   onClick={() => setSelectedItem("jar-rhizome")}
                 >
-                  塊根類(6)
+                  {t("store_category_rhizome")}({items.jar.rhizome.length})
                 </Text>
                 <Text
                   p="5px"
@@ -760,7 +995,7 @@ const Store = ({ isContactUsOpen, setIsContactUsOpen }) => {
                   bg={selectedItem === "jar-other" ? "#F7F7F7" : "white"}
                   onClick={() => setSelectedItem("jar-other")}
                 >
-                  其他(1)
+                  {t("store_category_other")}({items.jar.other.length})
                 </Text>
               </Box>
             </Box>
@@ -776,7 +1011,7 @@ const Store = ({ isContactUsOpen, setIsContactUsOpen }) => {
                 bg={selectedItem === "Pouch" ? "#F7F7F7" : "white"}
                 onClick={() => setSelectedItem("Pouch")}
               >
-                袋裝
+                {t("store_category_pouch")}
               </Text>
               <Box ml="40px" mt="5px">
                 <Text
@@ -785,7 +1020,7 @@ const Store = ({ isContactUsOpen, setIsContactUsOpen }) => {
                   bg={selectedItem === "pouch-bean" ? "#F7F7F7" : "white"}
                   onClick={() => setSelectedItem("pouch-bean")}
                 >
-                  豆類(4)
+                  {t("store_category_bean")}({items.pouch.bean.length})
                 </Text>
                 <Text
                   p="5px"
@@ -793,7 +1028,7 @@ const Store = ({ isContactUsOpen, setIsContactUsOpen }) => {
                   bg={selectedItem === "pouch-rhizome" ? "#F7F7F7" : "white"}
                   onClick={() => setSelectedItem("pouch-rhizome")}
                 >
-                  塊根類(6)
+                  {t("store_category_rhizome")}({items.pouch.rhizome.length})
                 </Text>
                 <Text
                   p="5px"
@@ -801,7 +1036,7 @@ const Store = ({ isContactUsOpen, setIsContactUsOpen }) => {
                   bg={selectedItem === "pouch-jelly" ? "#F7F7F7" : "white"}
                   onClick={() => setSelectedItem("pouch-jelly")}
                 >
-                  果凍(5)
+                  {t("store_category_jelly")}({items.pouch.jelly.length})
                 </Text>
                 <Text
                   p="5px"
@@ -809,7 +1044,7 @@ const Store = ({ isContactUsOpen, setIsContactUsOpen }) => {
                   bg={selectedItem === "pouch-jam" ? "#F7F7F7" : "white"}
                   onClick={() => setSelectedItem("pouch-jam")}
                 >
-                  果醬(6)
+                  {t("store_category_jam")}({items.pouch.jam.length})
                 </Text>
                 <Text
                   p="5px"
@@ -817,7 +1052,7 @@ const Store = ({ isContactUsOpen, setIsContactUsOpen }) => {
                   bg={selectedItem === "pouch-juice" ? "#F7F7F7" : "white"}
                   onClick={() => setSelectedItem("pouch-juice")}
                 >
-                  果汁(3)
+                  {t("store_category_juice")}({items.pouch.juice.length})
                 </Text>
                 <Text
                   p="5px"
@@ -825,7 +1060,7 @@ const Store = ({ isContactUsOpen, setIsContactUsOpen }) => {
                   bg={selectedItem === "pouch-other" ? "#F7F7F7" : "white"}
                   onClick={() => setSelectedItem("pouch-other")}
                 >
-                  其他(3)
+                  {t("store_category_other")}({items.pouch.other.length})
                 </Text>
               </Box>
             </Box>
@@ -851,16 +1086,16 @@ const Store = ({ isContactUsOpen, setIsContactUsOpen }) => {
                     />
                     <Flex flexDir="column" p="16px" h="100%">
                       <Text fontSize="20px" fontWeight="500">
-                        {product.name}
+                        {t(product.id)}
                       </Text>
                       <Text fontSize="16px" color="#313131">
-                        {product.info}
+                        {t(`${product.id}_info`)}
                       </Text>
-                      <Flex justify="space-between" align="center" mt="10px">
+                      {/* <Flex justify="space-between" align="center" mt="10px">
                         <Text fontSize="16px" color="#313131">
                           $TWD {product.price}
                         </Text>
-                      </Flex>
+                      </Flex> */}
                     </Flex>
                   </Box>
                 </WrapItem>

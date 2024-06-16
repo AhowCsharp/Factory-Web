@@ -3,10 +3,13 @@ import { Box, Flex, Image, Text } from "@chakra-ui/react";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Head from "next/head";
-import { useEffect } from "react";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 const About = ({ nonce }) => {
   const { t } = useTranslation("common");
+  const router = useRouter();
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -34,6 +37,14 @@ const About = ({ nonce }) => {
       });
     };
   }, []);
+
+  useEffect(() => {
+    if (router.isReady) {
+      setTimeout(() => {
+        setIsLoaded(true);
+      }, 3000);
+    }
+  }, [router, router.isReady]);
 
   const aboutSEO = {
     title: "關於我們 - 寰宇食品",
@@ -180,7 +191,13 @@ const About = ({ nonce }) => {
               fontWeight="500"
               p="24px"
             >
-              {t("about_info_2")}
+              {t("about_info_v2_1")}
+              <br />
+              {t("about_info_v2_2")}
+              <br />
+              {t("about_info_v2_3")}
+              <br />
+              {t("about_info_v2_4")}
             </Text>
           </Box>
           <Flex align="end" justify="end" flex="1">
@@ -192,15 +209,62 @@ const About = ({ nonce }) => {
           </Flex>
         </Flex>
         <Flex
-          className="animate-item"
+          // className="animate-item"
           bg="#FCFCFC"
           w="100%"
           flexDir={{ base: "column", md: "row" }}
         >
-          <Flex flex="1" pt="20px" px="20px">
-            <Image borderRadius="4px" src="/images/about/certification.jpg" />
+          <Flex flexDir="column" flex="1" w={{ base: "100vw", md: "50vw" }}>
+            <Flex pt="20px" px="20px">
+              <Image
+                w={{ base: "50%", md: "25vw" }}
+                borderRadius="4px"
+                src="/images/about/certification1.jpeg"
+              />
+              <Image
+                w={{ base: "50%", md: "25vw" }}
+                borderRadius="4px"
+                src="/images/about/certification2.jpeg"
+              />
+            </Flex>
+            <Flex flex="1" pt="20px" px="20px">
+              <Image
+                w={{ base: "50%", md: "25vw" }}
+                borderRadius="4px"
+                src="/images/about/certification4.jpeg"
+              />
+              <Image
+                w={{ base: "50%", md: "25vw" }}
+                borderRadius="4px"
+                src="/images/about/certification3.jpeg"
+              />
+            </Flex>
+            <Flex flex="1" pt="20px" px="20px">
+              <Image
+                w={{ base: "50%", md: "25vw" }}
+                borderRadius="4px"
+                src="/images/about/certification5.jpeg"
+              />
+              <Image
+                w={{ base: "50%", md: "25vw" }}
+                borderRadius="4px"
+                src="/images/about/certification6.jpeg"
+              />
+            </Flex>
+            <Flex flex="1" pt="20px" px="20px">
+              <Image
+                w={{ base: "50%", md: "25vw" }}
+                borderRadius="4px"
+                src="/images/about/certification7.jpeg"
+              />
+            </Flex>
           </Flex>
-          <Flex flex="1" align="center">
+          <Flex
+            flex="1"
+            align="center"
+            justify="center"
+            maxW={{ base: "100vw", md: "50vw" }}
+          >
             <Text
               fontSize="16px"
               color="#313131"
@@ -236,12 +300,13 @@ const About = ({ nonce }) => {
             align="center"
           >
             <Text
-              ml="40px"
+              w="100%"
+              mr="40px"
               fontSize="16px"
               color="#313131"
               p="24px"
               fontWeight="500"
-              maxW="500px"
+              maxW="400px"
             >
               {t("about_info_2")}
             </Text>
@@ -261,7 +326,7 @@ const About = ({ nonce }) => {
             color="#313131"
             p="24px"
             fontWeight="500"
-            maxW="500px"
+            maxW="400px"
           >
             {t("about_info_2")}
           </Text>
@@ -282,12 +347,12 @@ const About = ({ nonce }) => {
         </Flex>
         <Box
           className="animate-item"
-          pt="100px"
+          pt="150px"
           bg="#FCFCFC"
           pb={{ base: "36px", md: "60px" }}
         >
           <Flex flex="1" p="20px">
-            <Map nonce={nonce} />
+            {isLoaded && <Map nonce={nonce} />}
             {/* <Image borderRadius="4px" src="/images/item/world.png" /> */}
           </Flex>
         </Box>

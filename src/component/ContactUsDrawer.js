@@ -171,7 +171,7 @@ const ContactUsDrawer = ({ isContactUsOpen, setIsContactUsOpen }) => {
                 lineHeight="24px"
                 fontWeight="medium"
               >
-                TEL:037-831922
+                TEL:037-354586
               </Text>
               <Text
                 color="#000000"

@@ -18,6 +18,7 @@ const fadeInOut = keyframes`
 export default function Home() {
   const { t } = useTranslation("common");
   const router = useRouter();
+  const locale = router.locale;
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -158,10 +159,10 @@ export default function Home() {
                 />
               </Box>
               <Text
-                h={{ base: "250px", md: "400px" }}
+                h={{ base: locale === "en" ? "350px" : "250px", md: "400px" }}
                 lineHeight={{ base: "2", md: "2" }}
                 textAlign="start"
-                sx={{ writingMode: "vertical-rl" }}
+                sx={{ writingMode: locale === "en" ? "" : "vertical-rl" }}
                 px={{ base: "24px", md: "48px" }}
                 py={{ base: "24px", md: "48px" }}
                 ml={{ base: "0px", md: "48px" }}
@@ -243,7 +244,7 @@ export default function Home() {
                 textAlign="center"
                 mb="36px"
               >
-                關於我們的最新消息
+                {t("home_about")}
               </Text>
               <Text
                 display={{ base: "block", md: "none" }}
@@ -251,7 +252,7 @@ export default function Home() {
                 textAlign="center"
                 mr="48px"
               >
-                關於我們的最新消息
+                {t("home_about")}
               </Text>
               <Image w="180px" src="./images/news/dec.png" />
             </Flex>

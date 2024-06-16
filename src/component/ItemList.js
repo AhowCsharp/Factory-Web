@@ -1,24 +1,26 @@
 import { Box, Image, Text, Wrap, WrapItem } from "@chakra-ui/react";
+import { useTranslation } from "next-i18next";
 
 const ItemList = () => {
+  const { t } = useTranslation("common");
   const ITEMS = [
     {
       id: 1,
       name: "item1",
       img: "./images/swiper/swiper_10.jpg",
-      info: "紅豆含豐富蛋白質和纖維，是營養又健康的食材",
+      info: t("home_item_1"),
     },
     {
       id: 2,
       name: "item2",
       img: "./images/swiper/swiper_11.jpg",
-      info: "果醬多用於點心，甜美果味增添豐富的層次感",
+      info: t("home_item_2"),
     },
     {
       id: 3,
       name: "item3",
       img: "./images/swiper/swiper_12.jpg",
-      info: "筍子口感鮮嫩，是春季菜餚中不可缺少的佳品",
+      info: t("home_item_3"),
     },
   ];
 
