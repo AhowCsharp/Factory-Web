@@ -361,7 +361,7 @@ const About = ({ nonce }) => {
   );
 };
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
   const { locale } = context;
 
   return {
