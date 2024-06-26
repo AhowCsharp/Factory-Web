@@ -83,7 +83,7 @@ const App = ({ Component, pageProps }) => {
   );
 };
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
   const { res, locale } = context;
   res.setHeader("Cache-Control", "no-store");
   return {

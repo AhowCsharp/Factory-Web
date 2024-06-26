@@ -302,7 +302,7 @@ export default function Home() {
   );
 }
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) { // - 改為使用getStaticProps
   const { locale } = context;
 
   return {
