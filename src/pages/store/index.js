@@ -21,7 +21,35 @@ const IMAGE_LIST = [
   "/images/store/lead_slider_1_4.jpg",
   "/images/store/lead_slider_1_5.jpg",
   "/images/store/lead_slider_1_6.jpg",
-  "/images/store/lead_slider_1_7.jpg",
+];
+
+const IMAGE_LIST_2 = [
+  "/images/store/lead_slider_2_1.jpg",
+  "/images/store/lead_slider_2_2.jpg",
+  "/images/store/lead_slider_2_3.jpg",
+  "/images/store/lead_slider_2_4.jpg",
+  "/images/store/lead_slider_2_5.jpg",
+  "/images/store/lead_slider_2_6.jpg",
+  "/images/store/lead_slider_2_7.jpg",
+  "/images/store/lead_slider_2_8.jpg",
+  "/images/store/lead_slider_2_9.jpg",
+  "/images/store/lead_slider_2_10.jpg",
+  "/images/store/lead_slider_2_11.jpg",
+  "/images/store/lead_slider_2_12.jpg",
+  "/images/store/lead_slider_2_13.jpg",
+  "/images/store/lead_slider_2_14.jpg",
+  "/images/store/lead_slider_2_15.jpg",
+  "/images/store/lead_slider_2_16.jpg",
+  "/images/store/lead_slider_2_17.jpg",
+  "/images/store/lead_slider_2_18.jpg",
+  "/images/store/lead_slider_2_19.jpg",
+  "/images/store/lead_slider_2_20.jpg",
+  "/images/store/lead_slider_2_21.jpg",
+  "/images/store/lead_slider_2_22.jpg",
+  "/images/store/lead_slider_2_23.jpg",
+  "/images/store/lead_slider_2_24.jpg",
+  "/images/store/lead_slider_2_25.jpg",
+  "/images/store/lead_slider_2_26.jpg",
 ];
 
 const PRODUCT_LIST = [
@@ -393,7 +421,7 @@ const items = {
     bean: [
       {
         id: "pouch-bean-1",
-        img: "/images/store/product/ex.jpg",
+        img: "/images/store/product/pouch-bean-1.jpg",
         name: "紫米紅豆(1KG)",
         price: "300",
         info: "紫米與紅豆的完美結合，口感豐富，適合各種甜品和湯品。",
@@ -423,7 +451,7 @@ const items = {
     rhizome: [
       {
         id: "pouch-rhizome-1",
-        img: "/images/store/product/ex.jpg",
+        img: "/images/store/product/pouch-rhizome-8.jpg",
         name: "紫米(1KG)",
         price: "300",
         info: "富含營養的紫米，具有天然的甜味和獨特的口感。",
@@ -444,7 +472,7 @@ const items = {
       },
       {
         id: "pouch-rhizome-4",
-        img: "/images/store/product/ex.jpg",
+        img: "/images/store/product/pouch-rhizome-7.jpg",
         name: "芋頭(1cm丁/2cm塊)(1KG)",
         price: "300",
         info: "切丁或切塊的芋頭，口感綿密，適合各種料理。",
@@ -467,7 +495,7 @@ const items = {
     jelly: [
       {
         id: "pouch-jelly-1",
-        img: "/images/store/product/ex.jpg",
+        img: "/images/store/product/pouch-jelly-1.jpg",
         name: "嫩仙草凍(1KG)",
         price: "300",
         info: "嫩滑的仙草凍，口感細膩。",
@@ -481,14 +509,14 @@ const items = {
       },
       {
         id: "pouch-jelly-3",
-        img: "/images/store/product/ex.jpg",
+        img: "/images/store/product/pouch-jelly-3.jpg",
         name: "荔枝凍(1KG)",
         price: "300",
         info: "香甜的荔枝凍，口感滑順。",
       },
       {
         id: "pouch-jelly-4",
-        img: "/images/store/product/ex.jpg",
+        img: "/images/store/product/pouch-jelly-4.jpg",
         name: "烏龍茶凍(1KG)",
         price: "300",
         info: "淡雅的烏龍茶凍，口感清新。",
@@ -497,6 +525,20 @@ const items = {
         id: "pouch-jelly-5",
         img: "/images/store/product/ex.jpg",
         name: "胭脂茶凍(1KG)",
+        price: "300",
+        info: "鮮豔的胭脂茶凍，口感滑順。",
+      },
+      {
+        id: "pouch-jelly-6",
+        img: "/images/store/product/pouch-jelly-6.jpg",
+        name: "果凍系列-紅茶凍",
+        price: "300",
+        info: "鮮豔的胭脂茶凍，口感滑順。",
+      },
+      {
+        id: "pouch-jelly-7",
+        img: "/images/store/product/pouch-jelly-7.jpg",
+        name: "果凍系列-藍莓凍",
         price: "300",
         info: "鮮豔的胭脂茶凍，口感滑順。",
       },
@@ -518,21 +560,21 @@ const items = {
       },
       {
         id: "pouch-jam-3",
-        img: "/images/store/product/ex.jpg",
+        img: "/images/store/product/pouch-jam-3.jpg",
         name: "鳳梨醬(1KG)",
         price: "300",
         info: "香甜的鳳梨醬，適合搭配吐司和甜品。",
       },
       {
         id: "pouch-jam-4",
-        img: "/images/store/product/ex.jpg",
+        img: "/images/store/product/pouch-jam-4.jpg",
         name: "火龍果醬(1KG)",
         price: "300",
         info: "獨特的火龍果醬，風味獨特。",
       },
       {
         id: "pouch-jam-5",
-        img: "/images/store/product/ex.jpg",
+        img: "/images/store/product/pouch-jam-5.jpg",
         name: "打碎荔枝醬(1KG)",
         price: "300",
         info: "清香的打碎荔枝醬，適合搭配甜品。",
@@ -568,6 +610,36 @@ const items = {
         info: "清涼的仙草汁，消暑解渴。",
       },
     ],
+    mini: [
+      {
+        id: "pouch-mini-1",
+        img: "/images/store/product/pouch-mini-1.jpg",
+      },
+      {
+        id: "pouch-mini-2",
+        img: "/images/store/product/pouch-mini-2.jpg",
+      },
+      {
+        id: "pouch-mini-3",
+        img: "/images/store/product/pouch-mini-3.jpg",
+      },
+      {
+        id: "pouch-mini-4",
+        img: "/images/store/product/pouch-mini-4.jpg",
+      },
+      {
+        id: "pouch-mini-5",
+        img: "/images/store/product/pouch-mini-5.jpg",
+      },
+      {
+        id: "pouch-mini-6",
+        img: "/images/store/product/pouch-mini-6.jpg",
+      },
+      {
+        id: "pouch-mini-7",
+        img: "/images/store/product/pouch-mini-7.jpg",
+      },
+    ],
     other: [
       {
         id: "pouch-other-1",
@@ -594,7 +666,9 @@ const items = {
   },
 };
 
-const CarouselItem = () => {
+const CarouselItem = ({ ITEM }) => {
+  const count = ITEM.length;
+
   const moveup = keyframes`
 0% { transform: translateX(0%); }
 100% { transform: translateX(-50%); }
@@ -603,17 +677,18 @@ const CarouselItem = () => {
   const preferReducedMotion = usePrefersReducedMotion();
   const animation = preferReducedMotion
     ? undefined
-    : `${moveup} 60s linear 0s infinite`;
+    : `${moveup} ${(count / 7) * 60}s linear 0s infinite`;
 
   return (
     <Box overflow="hidden" zIndex="9950" pos="relative" mb="-20px">
       <Flex
-        w={{ base: "4200px", md: "5600px" }}
+        w={{ base: `${count * 2 * 300}px`, md: `${count * 2 * 400}px` }}
         overflow="hidden"
         direction="row"
         animation={animation}
+        maxH="300px"
       >
-        {IMAGE_LIST.map((product, index) => {
+        {ITEM.map((product, index) => {
           return (
             <Box
               key={index}
@@ -621,11 +696,19 @@ const CarouselItem = () => {
               h="100%"
               border="4px solid white"
             >
-              <Image borderRadius="8px" src={product} w="100%" />
+              <Box
+                bgImg={`url(${product})`}
+                bgSize="cover"
+                bgPos="center"
+                w={{ base: "300px", md: "400px" }}
+                h={{ base: "164px", md: "220px" }}
+                borderRadius="8px"
+              ></Box>
+              {/* <Image borderRadius="8px" src={product} w="100%" /> */}
             </Box>
           );
         })}
-        {IMAGE_LIST.map((product, index) => {
+        {ITEM.map((product, index) => {
           return (
             <Box
               key={index}
@@ -633,7 +716,15 @@ const CarouselItem = () => {
               h="100%"
               border="4px solid white"
             >
-              <Image w="100%" borderRadius="8px" src={product} />
+              <Box
+                bgImg={`url(${product})`}
+                bgSize="cover"
+                bgPos="center"
+                w={{ base: "300px", md: "400px" }}
+                h={{ base: "164px", md: "220px" }}
+                borderRadius="8px"
+              ></Box>
+              {/* <Image w="100%" borderRadius="8px" src={product} /> */}
             </Box>
           );
         })}
@@ -658,6 +749,7 @@ const Store = ({ isContactUsOpen, setIsContactUsOpen }) => {
         ...items.pouch.jelly,
         ...items.pouch.jam,
         ...items.pouch.juice,
+        ...items.pouch.mini,
         ...items.pouch.other,
       ]);
     } else if (selectedItem === "Jar") {
@@ -673,6 +765,7 @@ const Store = ({ isContactUsOpen, setIsContactUsOpen }) => {
         ...items.pouch.jelly,
         ...items.pouch.jam,
         ...items.pouch.juice,
+        ...items.pouch.mini,
         ...items.pouch.other,
       ]);
     } else {
@@ -810,7 +903,7 @@ const Store = ({ isContactUsOpen, setIsContactUsOpen }) => {
           </Flex>
 
           <Flex w="full" pos="absolute" bottom={{ base: "40px", md: "100px" }}>
-            <CarouselItem />
+            <CarouselItem ITEM={IMAGE_LIST} />
             {/* <Image
             ml="40px"
             src="/images/store/lead_slider_1_1.png"
@@ -1058,6 +1151,14 @@ const Store = ({ isContactUsOpen, setIsContactUsOpen }) => {
                   p="5px"
                   cursor="pointer"
                   bg={selectedItem === "pouch-other" ? "#F7F7F7" : "white"}
+                  onClick={() => setSelectedItem("pouch-mini")}
+                >
+                  {t("store_category_mini")}({items.pouch.mini.length})
+                </Text>
+                <Text
+                  p="5px"
+                  cursor="pointer"
+                  bg={selectedItem === "pouch-other" ? "#F7F7F7" : "white"}
                   onClick={() => setSelectedItem("pouch-other")}
                 >
                   {t("store_category_other")}({items.pouch.other.length})
@@ -1078,12 +1179,14 @@ const Store = ({ isContactUsOpen, setIsContactUsOpen }) => {
                     bg="#F7F7F7"
                     borderRadius="8px"
                   >
-                    <Image
-                      src={product.img}
+                    <Box
+                      bgImg={`url(${product.img})`}
+                      bgSize="cover"
+                      bgPos="center"
                       w="100%"
                       h="200px"
                       borderRadius="8px 8px 0px 0px"
-                    />
+                    ></Box>
                     <Flex flexDir="column" p="16px" h="100%">
                       <Text fontSize="20px" fontWeight="500">
                         {t(product.id)}
@@ -1103,6 +1206,7 @@ const Store = ({ isContactUsOpen, setIsContactUsOpen }) => {
             })}
           </Wrap>
         </Flex>
+        <CarouselItem ITEM={IMAGE_LIST_2} />
       </Box>
     </>
   );

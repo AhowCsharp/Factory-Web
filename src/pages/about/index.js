@@ -214,15 +214,21 @@ const About = ({ nonce }) => {
           w="100%"
           flexDir={{ base: "column", md: "row" }}
         >
-          <Flex flexDir="column" flex="1" w={{ base: "100vw", md: "50vw" }}>
+          <Flex
+            flexDir="column"
+            flex="1"
+            w={{ base: "100vw", md: "100vw" }}
+            justify="center"
+            align="center"
+          >
             <Flex pt="20px" px="20px">
               <Image
-                w={{ base: "50%", md: "25vw" }}
+                w={{ base: "50%", md: "50vw" }}
                 borderRadius="4px"
                 src="/images/about/certification1.jpeg"
               />
               <Image
-                w={{ base: "50%", md: "25vw" }}
+                w={{ base: "50%", md: "50vw" }}
                 borderRadius="4px"
                 src="/images/about/certification2.jpeg"
               />
@@ -258,22 +264,6 @@ const About = ({ nonce }) => {
                 src="/images/about/certification7.jpeg"
               />
             </Flex>
-          </Flex>
-          <Flex
-            flex="1"
-            align="center"
-            justify="center"
-            maxW={{ base: "100vw", md: "50vw" }}
-          >
-            <Text
-              fontSize="16px"
-              color="#313131"
-              pt="24px"
-              px="24px"
-              fontWeight="500"
-            >
-              {t("about_info_1_1")}
-            </Text>
           </Flex>
         </Flex>
         <Flex
@@ -337,6 +327,7 @@ const About = ({ nonce }) => {
           bg="#FCFCFC"
           flex="1"
           justify="end"
+          mr="40px"
           display={{ base: "flex", md: "flex" }}
         >
           <Image

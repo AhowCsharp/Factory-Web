@@ -333,6 +333,73 @@ const Nav = ({ isContactUsOpen, setIsContactUsOpen }) => {
               bg="white"
               borderRadius="12px"
             >
+              <Flex align="center" borderBottom="1px dashed #c8a856">
+                <Box
+                  opacity={isMenuOpen ? "1" : "0"}
+                  transition={
+                    isMenuOpen
+                      ? "opacity 0.3s ease-in-out"
+                      : "opacity 0.2s ease-in-out"
+                  }
+                  transitionDelay={isMenuOpen ? "0.3s" : "0"}
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 18 18"
+                    fill="#D74C37"
+                    class="null"
+                  >
+                    <g>
+                      <path d="M18 9a9 9 0 11-9-9 9 9 0 019 9zm-5.436-.246L8.471 6.025a.926.926 0 00-1.44.771v5.457a.926.926 0 001.44.771l4.093-2.724a.926.926 0 000-1.546z"></path>
+                    </g>
+                  </svg>
+                </Box>
+                <Text
+                  ml="16px"
+                  opacity={isMenuOpen ? "1" : "0"}
+                  transition={
+                    isMenuOpen
+                      ? "opacity 0.3s ease-in-out"
+                      : "opacity 0.2s ease-in-out"
+                  }
+                  transitionDelay={isMenuOpen ? "0.3s" : "0"}
+                  mr={{ base: "0px", lg: "50px" }}
+                  py={{ base: "20px", lg: "0px" }}
+                  fontSize="18px"
+                  lineHeight="26px"
+                  fontWeight="500"
+                  color="#191919"
+                  cursor="pointer"
+                  onClick={async () => {
+                    router.push("/");
+                    setIsMenuOpen(false);
+
+                    setTimeout(() => {
+                      setIsMenuOpenAnimation(false);
+                    }, 200);
+                  }}
+                >
+                  首頁
+                </Text>
+                <Text
+                  ml="12px"
+                  color="#c8a856"
+                  fontSize="18px"
+                  lineHeight="26px"
+                  fontWeight="500"
+                  className="hoverText"
+                  opacity={isMenuOpen ? "1" : "0"}
+                  transition={
+                    isMenuOpen
+                      ? "opacity 0.3s ease-in-out"
+                      : "opacity 0.2s ease-in-out"
+                  }
+                  transitionDelay={isMenuOpen ? "0.3s" : "0"}
+                >
+                  Home
+                </Text>
+              </Flex>
               {ITEM_LIST.map((item) => {
                 return (
                   <Flex align="center" borderBottom="1px dashed #c8a856">
