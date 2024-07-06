@@ -223,12 +223,12 @@ const About = ({ nonce }) => {
           >
             <Flex pt="20px" px="20px">
               <Image
-                w={{ base: "50%", md: "50vw" }}
+                w={{ base: "50%", md: "25vw" }}
                 borderRadius="4px"
                 src="/images/about/certification1.jpeg"
               />
               <Image
-                w={{ base: "50%", md: "50vw" }}
+                w={{ base: "50%", md: "25vw" }}
                 borderRadius="4px"
                 src="/images/about/certification2.jpeg"
               />
