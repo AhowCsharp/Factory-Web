@@ -35,21 +35,6 @@ const IMAGE_LIST_2 = [
   "/images/store/lead_slider_2_9.jpg",
   "/images/store/lead_slider_2_10.jpg",
   "/images/store/lead_slider_2_11.jpg",
-  "/images/store/lead_slider_2_12.jpg",
-  "/images/store/lead_slider_2_13.jpg",
-  "/images/store/lead_slider_2_14.jpg",
-  "/images/store/lead_slider_2_15.jpg",
-  "/images/store/lead_slider_2_16.jpg",
-  "/images/store/lead_slider_2_17.jpg",
-  "/images/store/lead_slider_2_18.jpg",
-  "/images/store/lead_slider_2_19.jpg",
-  "/images/store/lead_slider_2_20.jpg",
-  "/images/store/lead_slider_2_21.jpg",
-  "/images/store/lead_slider_2_22.jpg",
-  "/images/store/lead_slider_2_23.jpg",
-  "/images/store/lead_slider_2_24.jpg",
-  "/images/store/lead_slider_2_25.jpg",
-  "/images/store/lead_slider_2_26.jpg",
 ];
 
 const PRODUCT_LIST = [
@@ -694,7 +679,7 @@ const CarouselItem = ({ ITEM }) => {
               key={index}
               w={{ base: "300px", md: "400px" }}
               h="100%"
-              border="4px solid white"
+              mr="10px"
             >
               <Box
                 bgImg={`url(${product})`}
@@ -714,7 +699,7 @@ const CarouselItem = ({ ITEM }) => {
               key={index}
               w={{ base: "300px", md: "400px" }}
               h="100%"
-              border="4px solid white"
+              mr="10px"
             >
               <Box
                 bgImg={`url(${product})`}
@@ -1206,7 +1191,9 @@ const Store = ({ isContactUsOpen, setIsContactUsOpen }) => {
             })}
           </Wrap>
         </Flex>
-        <CarouselItem ITEM={IMAGE_LIST_2} />
+        <Box pt="40px" pb="20px">
+          <CarouselItem ITEM={IMAGE_LIST_2} />
+        </Box>
       </Box>
     </>
   );
