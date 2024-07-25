@@ -662,7 +662,7 @@ const CarouselItem = ({ ITEM }) => {
   const preferReducedMotion = usePrefersReducedMotion();
   const animation = preferReducedMotion
     ? undefined
-    : `${moveup} ${(count / 7) * 60}s linear 0s infinite`;
+    : `${moveup} ${count * 0.06 * 60}s linear 0s infinite`;
 
   return (
     <Box overflow="hidden" zIndex="9950" pos="relative" mb="-20px">
